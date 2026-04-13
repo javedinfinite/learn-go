@@ -1,8 +1,10 @@
 package main
 
 func main () {
-	heloWorld()
-	printGoTypes()
+	// heloWorld()
+	// printGoTypes()
+	goloops_case()
+
 }
 
 
