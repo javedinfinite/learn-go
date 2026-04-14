@@ -6,7 +6,8 @@ func main () {
 	// goloops_case()
 	// PrintArrays()
 	// PrintSlices()
-	PrintMaps()
+	// PrintMaps()
+	PrintFunc()
 
 }
 
