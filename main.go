@@ -4,7 +4,8 @@ func main () {
 	// heloWorld()
 	// printGoTypes()
 	// goloops_case()
-	PrintArrays()
+	// PrintArrays()
+	PrintSlices()
 
 }
 
