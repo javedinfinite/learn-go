@@ -3,7 +3,8 @@ package main
 func main () {
 	// heloWorld()
 	// printGoTypes()
-	goloops_case()
+	// goloops_case()
+	PrintArrays()
 
 }
 
