@@ -7,7 +7,8 @@ func main () {
 	// PrintArrays()
 	// PrintSlices()
 	// PrintMaps()
-	PrintFunc()
+	// PrintFunc()
+	PrintString()
 
 }
 
