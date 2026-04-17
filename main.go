@@ -9,7 +9,9 @@ func main () {
 	// PrintMaps()
 	// PrintFunc()
 	// PrintString()
-	printStruct()
+	// printStruct()
+	// PrintingGoRoutine1()
+	PrintingGoRoutine2()
 
 }
 
