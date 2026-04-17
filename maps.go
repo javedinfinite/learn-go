@@ -33,6 +33,9 @@ func PrintMaps () {
 
 	map2KeysIterator := maps.Keys(map2) // learning: maps.Keys() returns an iterator, not a slice—so you must range over it or collect it into a slice to see actual keys.
 	map2Keys := slices.Collect(map2KeysIterator)
+	for k,v := range map2 {
+		fmt.Println("map2 k, v :", k, v)
+	}
 
 	fmt.Println("map2KeysIterator, map2Keys", map2KeysIterator, map2Keys) // iterator returns keys but in random order, different everytime 
 

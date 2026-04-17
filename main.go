@@ -8,7 +8,8 @@ func main () {
 	// PrintSlices()
 	// PrintMaps()
 	// PrintFunc()
-	PrintString()
+	// PrintString()
+	printStruct()
 
 }
 
