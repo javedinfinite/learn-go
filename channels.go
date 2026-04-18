@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time" )
 
 func ping(pings chan<- string, msg string) {
 	pings <- msg
@@ -16,10 +18,11 @@ func PrintChannels1 () {
 	// Note: In go, Everything runs inside goroutines, including main.
 	// 
 	fmt.Println("*********************Printing channels***********************************")
+	
 
 	channel1 := make(chan string) // unbuffered channel created
-
 	channel1 <- "I am don" // blocks until another goroutine is ready to receive, fatal error: all goroutines are asleep - deadlock!
+
 
 	// Reson for below code never getting executed :
 	// The main function calls PrintChannels, and both execute within the same (main) goroutine.
@@ -33,6 +36,9 @@ func PrintChannels1 () {
 	channel1Value := <- channel1
 
 	fmt.Println("channel1Value : ", channel1Value)
+
+	channel2 := time.After(3 * time.Second) // Another way to create channel with timer, creates a channel, starts a timer, after 3 seconds go sends the current time into the channel2
+	fmt.Println("channel2 : ", channel2)
 
 
 }
@@ -51,6 +57,8 @@ func PrintChannels2 () {
 		// Reason : The sender knows when it’s done sending. The receiver does not know if more data is coming
 		// Closing a channel means: “no more values will be sent”
 		close(channel1)
+		j, more := <- channel1 // In this special 2-value form of receive, the more value will be false if jobs has been closed and all values in the channel have already been received. We use this to notify on done when we’ve worked all our jobs.
+		fmt.Println("j, more", j, more)
 	}()
 
 	// A channel is not like a file or array, you don’t “read all contents.”
