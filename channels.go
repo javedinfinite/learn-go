@@ -2,6 +2,15 @@ package main
 
 import "fmt"
 
+func ping(pings chan<- string, msg string) {
+	pings <- msg
+}
+	
+func pong(pings <-chan string, pongs chan<- string) {
+	msg := <-pings
+	pongs <- msg
+}
+
 func PrintChannels1 () {
 	// Channels are the pipes that connect concurrent goroutines. You can send values into channels from one goroutine and receive those values into another goroutine.
 	// Note: In go, Everything runs inside goroutines, including main.
@@ -60,7 +69,8 @@ func PrintChannels2 () {
 	// Learning: In Go, synchronization means making goroutines wait for each other at the right moment and 
 	// unbuffered channels do this automatically by blocking send and receive until both sides are ready.
 	// In our above example, main goroutine waits here :- "channel1Value := <- channel1" until worker goroutine sends data, 
-	// This is synchronization automatically. This auto sync happens only for unbuffered channels.
+	// This is synchronization automatically. This auto sync happens only for unbuffered channels. Check go_routine.go where we have used waitgroup to synchronize
+
 
 	fmt.Println("************Printing channel with buffer*******************")
 	// By default channels are unbuffered, meaning that they will only accept sends (chan <-) if there is a corresponding receive (<- chan) 
@@ -74,6 +84,17 @@ func PrintChannels2 () {
 	fmt.Println("Reading from buffered channel:", <-channel2)
 	// fmt.Println("Reading from buffered channel:", <-channel2) // This will throw error as buffered data is empty and main goroutine is waiting to receive forever but as there is no data to send, it is deadlock
 
+	fmt.Println("************Printing channel direction*******************")
+	// Channel Direction (copy pasted from https://gobyexample.com/channel-directions)
+	// When using channels as function parameters, you can specify if a channel is meant to only send or receive values. 
+	// This specificity increases the type-safety of the program.
 
-	
+	pings := make(chan string, 1)
+    pongs := make(chan string, 1)
+    ping(pings, "passed message")
+    pong(pings, pongs)
+	fmt.Println(<-pongs)
+
+	fmt.Println("************Read sbout select specifically built for channels sync select.go*******************")
+
 }

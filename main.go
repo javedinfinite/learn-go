@@ -13,7 +13,8 @@ func main () {
 	// PrintingGoRoutine1()
 	// PrintingGoRoutine2()
 	// PrintChannels1()
-	PrintChannels2()
+	// PrintChannels2()
+	PrintingSelect()
 
 }
 
