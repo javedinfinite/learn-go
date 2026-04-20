@@ -71,6 +71,7 @@ func PrintChannels2 () {
 		// learning: The sender should close the channel, not the receiver
 		// Reason : The sender knows when it’s done sending. The receiver does not know if more data is coming
 		// If you're not using range, you often don’t need to close.
+		// Here range works differently on channel i.e. instead of iterating over a fixed collection, it keeps receiving values until the channel is closed
 		fmt.Println("Reading channel1 by iterating using range : ", value) 
 	}
 

@@ -14,7 +14,8 @@ func main () {
 	// PrintingGoRoutine2()
 	// PrintChannels1()
 	// PrintChannels2()
-	PrintingSelect()
+	// PrintingSelect()
+	PrintWorkerPool()
 
 }
 
