@@ -17,7 +17,8 @@ func main () {
 	// PrintingSelect()
 	// PrintWorkerPool()
 	// PrintRateLimitter()
-	PrintPanic()
+	// PrintPanic()
+	PrintErrors()
 
 }
 
