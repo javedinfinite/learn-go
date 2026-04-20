@@ -43,8 +43,7 @@ func PrintingGoRoutine1 () {
 
 func PrintingGoRoutine2 () {
 	// A WaitGroup in Go is used to make the main function (or any goroutine) wait until other goroutines finish their work.
-	// Pending to learn: Launch several goroutines using WaitGroup.Go
-	
+
 	fmt.Println("*************************Printing go routine with waitgroup***********************")
 
 	goRoutine("Sync first without waitgroup")
@@ -64,5 +63,20 @@ func PrintingGoRoutine2 () {
 	}("Async third")
 
 	wg.Wait() // blocks main goroutine until counter becomes 0
+
+	fmt.Println("*************************Printing go routine with waitgroup.go***********************")
+
+	// There is another way to wait for multiple go routines to finish without explicitly handling the counter.
+
+	var wgGo sync.WaitGroup
+
+	for i:=1 ; i<3 ; i++ {
+		wgGo.Go( 
+			func() { 
+				goRoutine("This go routine with waitgroup.go")
+			})
+	}
+
+	wgGo.Wait()
 
 }

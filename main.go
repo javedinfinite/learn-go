@@ -11,11 +11,11 @@ func main () {
 	// PrintString()
 	// printStruct()
 	// PrintingGoRoutine1()
-	// PrintingGoRoutine2()
+	PrintingGoRoutine2()
 	// PrintChannels1()
 	// PrintChannels2()
 	// PrintingSelect()
-	PrintWorkerPool()
+	// PrintWorkerPool()
 
 }
 
