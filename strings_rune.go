@@ -1,6 +1,12 @@
 package main
 
-import "fmt"
+import ("fmt"
+		s "strings"
+		)
+
+type point struct {
+	x, y int
+}
 
 func PrintString () {
 	fmt.Println("Printing strings:")
@@ -14,6 +20,43 @@ func PrintString () {
 
 	fmt.Println("string1_len, element1 unicode code point in decimal of string1 at 0 :", len(string1), element1) 
 	fmt.Println("len of string, string2 unicode code point in decimal of characters at 0 and 1 index",len(string2), string2[0], string2[1]) //  "é" has two char and not 1 so len is 2, this is becasue it is non-ascii character, so indexing is not correct way to work with character and text manipulation
+
+	var p = fmt.Println
+	// strings package provides many following string related functions : 
+	p("Contains:  ", s.Contains("test", "es"))
+    p("Count:     ", s.Count("test", "t"))
+    p("HasPrefix: ", s.HasPrefix("test", "te"))
+    p("HasSuffix: ", s.HasSuffix("test", "st"))
+    p("Index:     ", s.Index("test", "e"))
+    p("Join:      ", s.Join([]string{"a", "b"}, "-"))
+    p("Repeat:    ", s.Repeat("a", 5))
+    p("Replace:   ", s.Replace("foo", "o", "0", -1))
+    p("Replace:   ", s.Replace("foo", "o", "0", 1))
+    p("Split:     ", s.Split("a-b-c-d-e", "-"))
+    p("ToLower:   ", s.ToLower("TEST"))
+    p("ToUpper:   ", s.ToUpper("test"))
+
+	// Go offers several printing “verbs” designed to format general Go values
+	fmt.Println("***********Printing formatting string****************")
+	pnt := point{1, 2}
+	fmt.Printf("struct1: %v \n", pnt) // an instance of our point struct.
+	fmt.Printf("struct2: %+v \n", pnt) //  the %+v variant will include the struct’s field names.
+	fmt.Printf("struct3: %#v \n", pnt) // the source code snippet that would produce that value.
+	fmt.Printf("Type: %T \n", pnt) // type of the value
+	fmt.Printf("bool : %t \n", true)
+	fmt.Printf("integer : %d \n", 123)
+	fmt.Printf("binary : %b \n", 123)
+	fmt.Printf("char : %c \n", 123)
+	fmt.Printf("hex : %x \n", 123)
+	fmt.Printf("float : %f \n", 123.45)
+	fmt.Printf("float2 : %e \n", 123000.001) // Scientific notation, exponential notation, 1.230000e+05 = 1.230000 x 10^5, 
+	fmt.Printf("float3 : %.4E \n", 123000.001) // for more precision use %.4e, here 4 means after decimal show 4 digits only
+	fmt.Printf("string1 %s \n", "stuv")
+	fmt.Printf("string2 %q \n", "stuv") // to double quote a string
+	fmt.Printf("string3 %x \n", "stuv") // in case of string %x renders string in base 16 format
+	fmt.Printf("Pointer : %p \n", &pnt) // for pointer formatting
+	fmt.Printf("width of the printed result |%5d||%-6d|", 123, 456) // use s for string anf f for float width
+
 
 	// So what to do to access the char and not ascii value of it. Lets first understand the threory of characters;
 	// 1. Unicode = characters (meaning) : It is a universal character set for all language and symbols. It is the definition of characters, not how they are stored.
@@ -41,6 +84,7 @@ func PrintString () {
 
 	//  converting a UTF-8 string into a slice of Unicode code points, where each code point is stored as an int32.
 	r := []rune(string2) // r is a []rune (slice of int32), a dynamic slice of int32 
+	fmt.Println("\n ************************Printing rune**********************")
 	fmt.Println("r in raw form : ",r)
 	fmt.Printf("\nr value : %c",r)
 

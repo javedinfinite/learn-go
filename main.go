@@ -8,7 +8,7 @@ func main () {
 	// PrintSlices()
 	// PrintMaps()
 	// PrintFunc()
-	// PrintString()
+	PrintString()
 	// printStruct()
 	// PrintingGoRoutine1()
 	// PrintingGoRoutine2()
@@ -18,7 +18,7 @@ func main () {
 	// PrintWorkerPool()
 	// PrintRateLimitter()
 	// PrintPanic()
-	PrintErrors()
+	// PrintErrors()
 
 }
 
