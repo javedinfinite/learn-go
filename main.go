@@ -19,7 +19,8 @@ func main () {
 	// PrintRateLimitter()
 	// PrintPanic()
 	// PrintErrors()
-	PrintRegularExp()
+	// PrintRegularExp()
+	PrintJson()
 
 }
 
