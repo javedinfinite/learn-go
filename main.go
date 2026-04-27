@@ -20,7 +20,8 @@ func main () {
 	// PrintPanic()
 	// PrintErrors()
 	// PrintRegularExp()
-	PrintJson()
+	// PrintJson()
+	PrintTime()
 
 }
 
