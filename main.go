@@ -21,7 +21,8 @@ func main () {
 	// PrintErrors()
 	// PrintRegularExp()
 	// PrintJson()
-	PrintTime()
+	// PrintTime()
+	PrintRandom()
 
 }
 
