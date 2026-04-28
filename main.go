@@ -24,7 +24,8 @@ func main () {
 	// PrintTime()
 	// PrintRandom()
 	// PrintUrlParsing()
-	PrintCommandLineArgs()
+	// PrintCommandLineArgs()
+	PrintEnvVar()
 
 }
 
