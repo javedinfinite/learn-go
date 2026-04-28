@@ -23,7 +23,8 @@ func main () {
 	// PrintJson()
 	// PrintTime()
 	// PrintRandom()
-	PrintUrlParsing()
+	// PrintUrlParsing()
+	PrintCommandLineArgs()
 
 }
 
