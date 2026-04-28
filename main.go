@@ -22,7 +22,8 @@ func main () {
 	// PrintRegularExp()
 	// PrintJson()
 	// PrintTime()
-	PrintRandom()
+	// PrintRandom()
+	PrintUrlParsing()
 
 }
 
