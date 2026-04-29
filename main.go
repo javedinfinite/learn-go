@@ -25,7 +25,8 @@ func main () {
 	// PrintRandom()
 	// PrintUrlParsing()
 	// PrintCommandLineArgs()
-	PrintEnvVar()
+	// PrintEnvVar()
+	PrintLogger()
 
 }
 
