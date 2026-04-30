@@ -1,9 +1,11 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -65,4 +67,47 @@ func PrintHttpClient () {
 	body1, _ := io.ReadAll(resp1.Body)
 	fmt.Println("resp1 : ", string(body1[0]))
 
+	// Lets see how to send post request similarly
+	fmt.Println("****************Printing http post request*************************")
+	
+	// Simple post
+	data := strings.NewReader("I am data to be sent {'test':'test_value'} ") // HTTP body must be a stream, converting string to stream
+	resp2, err2 := http.Post(
+		"https://example.com",
+		"application/x-www-form-urlencoded",
+		data,
+	)
+	if err2!=nil {
+		panic(err2)
+	}
+	defer resp2.Body.Close()
+	fmt.Println("printing post response", resp2.Status) // 405 as example.com doesn't accespt post request
+	// Simple post end
+
+	// Lets learn how we can send post with better approach for prod
+
+	jsonData := []byte(`{"key1":"value1", "key2": "value2"}`) // everything mostly in slice of bytes as it is lowest common denominator of data, efficient and flexible, the backbone of Go’s I/O system
+	req3, _ := http.NewRequest(
+		"POST",
+		"https://example.com",
+		bytes.NewBuffer(jsonData), //  // HTTP body must be a stream, converting string to stream
+	)
+	req.Header.Set("Content-Type", "application/json")
+
+	client2 := http.Client{}
+	resp3, err3 := client2.Do(req3)
+
+	if err3!=nil {
+		panic(err3)
+	}
+
+	defer resp3.Body.Close()
+
+	fmt.Println("Post request with client formation : ", resp3.Status) // 405 as example.com doesn't accespt post request
+
+	// JSON: since most of the time data sent and received is JSON, in GO we constandtly need to encode (GO->JSON, json.Marshal) and decode (JSON->GO, json.Unmarshal)
+	// For more check json.go file
+
+	// Mostly we use json.NewDecoder(resp.Body).Decode(&user) and not unmarshal becasue that needs one more extra step of reading from stream first.
+	// user is struct var
 }
