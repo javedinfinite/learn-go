@@ -26,7 +26,8 @@ func main () {
 	// PrintUrlParsing()
 	// PrintCommandLineArgs()
 	// PrintEnvVar()
-	PrintLogger()
+	// PrintLogger()
+	PrintHttpClient()
 
 }
 
