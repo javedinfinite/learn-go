@@ -27,7 +27,8 @@ func main () {
 	// PrintCommandLineArgs()
 	// PrintEnvVar()
 	// PrintLogger()
-	PrintHttpClient()
+	// PrintHttpClient()
+	PrintGoServer()
 
 }
 
